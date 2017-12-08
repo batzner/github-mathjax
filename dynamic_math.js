@@ -1,15 +1,15 @@
 function render_preview() {
-    $(".js-preview-tab").on("click", function(e) {
+    $(".js-blob-edit-preview").on("click", function(e) {
         function didLoadPreview() {
-            if (!$(".js-preview-tab").hasClass('selected')) {
+            if (!$(".js-blob-edit-preview").hasClass('selected')) {
                 return;
             }
-            if ($(".preview-content").attr('display') == 'none') {
+            if ($(".commit-preview").attr('display') == 'none') {
                 setTimeout(didLoadPreview, 200);
             }
-            window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub], $(".preview-content")[0]);
+            window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub], $(".commit-preview")[0]);
         }
-        setTimeout(didLoadPreview, 200);
+        setTimeout(didLoadPreview, 300);
     });
 }
 render_preview();
